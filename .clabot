@@ -1,6 +1,5 @@
 {
   "contributors": [
-    "mdwragg",
     "nonmetalhail",
     "talimarcus",
     "katemenkhaus",
@@ -8,5 +7,6 @@
     "davidrleonard",
     "randyaskin",
     "benoitjchevalier"
-  ]
+  ],
+  "message": "Thank you for your pull request. We require contributors to sign our Contributor License Agreement [here](https://www.predix-ui.com/#/develop/cla)."
 }
