@@ -1,22 +1,4 @@
 {
-  "contributors": [
-    "nonmetalhail",
-    "talimarcus",
-    "katemenkhaus",
-    "ppeyro",
-    "davidrleonard",
-    "randyaskin",
-    "benoitjchevalier",
-    "limonte",
-    "benfortenberry",
-    "j12y",
-    "gstroup",
-    "binhbbui411",
-    "kmackinnon",
-    "TimCorwin",
-    "sks",
-    "gstroup",
-    "kmackinnon"
-  ],
+  "contributors": "https://us-central1-px-cla.cloudfunctions.net/contributor?checkContributor=",
   "message": "Thank you for your pull request. We require contributors to sign our Contributor License Agreement [here](https://www.predix-ui.com/#/develop/cla)."
 }
