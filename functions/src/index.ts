@@ -3,31 +3,22 @@ import * as admin from 'firebase-admin'
 
 admin.initializeApp();
 
-
-interface User {
-    github: string;
-}
-// Start writing Firebase Functions
-// https://firebase.google.com/docs/functions/typescript
-
-interface DBObjects {
-    [key: string]: User
-}
-
-
-export const users = functions.https.onRequest((request, response) => {
-    const ref = admin.database().ref('users');
-    ref.on("value", (snapshot) => {
-        const db: DBObjects = snapshot.toJSON() as DBObjects;
-        const signedUsers = Object.keys(db).map(a => db[a]).map(u => u.github)
-        response.send(signedUsers);
-     }, function (errorObject) {
-        response.status(500);
-        response.send({
-            errorObject,
+export const contributor = functions.https.onRequest(async (request, response) => {
+    let isContributor: boolean = false
+    const contributorID = request.query.checkContributor || ''
+    if(contributorID ===undefined || contributorID===''){
+        response.send({isContributor});
+        return;
+    }
+    console.log(`Checking the Contributor ${contributorID}`)
+    await admin
+        .database().ref('users')
+        .orderByChild('github')
+        .equalTo(contributorID)
+        .once("value", (snapshot) => {
+            isContributor = snapshot.exists()
+            response.send({isContributor});
+        }, function (errorObject) {
+            response.send({isContributor});
         });
-        
-        response.send
-     });
-     
 });
